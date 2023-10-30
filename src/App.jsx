@@ -1,14 +1,16 @@
 import './App.css'
+import Header from './component/Header'
+import Footer from './component/Footer'
+import Note from './component/Note'
 
 function App() {
 
   return (
-    <>
-     <h1>
-     Hello World 
-
-     </h1>
-    </>
+  <>
+    <Header />
+    <Note />
+    <Footer />
+  </>
   )
 }
 
