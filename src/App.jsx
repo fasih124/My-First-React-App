@@ -1,3 +1,4 @@
+import React  from "react";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
 import Note from "./component/Note";
@@ -5,20 +6,23 @@ import CreateArea from "./component/CreateArea";
 // import notes from "./notes";
 
 function App() {
+  const [notes, setNotes] = React.useState([]);
+
+  function addNote(note) {  
+    setNotes((prevNotes) => {
+      return [...prevNotes, note];
+    });
+  }
+
   return (
     <>
       <Header />
-      <CreateArea />
-      {
-      /* {notes.map((noteEntry) => (
-        <Note
-          key={noteEntry.key}
-          heading={noteEntry.title}
-          description={noteEntry.content}
-        />
-      ))} */
-      }
-      <Note key={1} title="Note title" content="Note content" />
+      <CreateArea onAdd={addNote} />
+      {notes.map((noteItem, index) => {
+        return (
+          <Note key={index} heading={noteItem.title} description={noteItem.content} />
+        );
+      })}
 
       <Footer />
     </>
