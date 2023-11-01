@@ -14,6 +14,10 @@ function CreateArea(props) {
         [name]: value,
       };
     });
+
+
+
+
   }
 
   function submitNote(event) {
